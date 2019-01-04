@@ -27,8 +27,13 @@
               "src/assets"
             ],
             "styles": [
-              "src/styles.sass"
+              "src/sass/base.sass"
             ],
+            "stylePreprocessorOptions": {
+              "includePaths": [
+                "./node_modules/bulma/sass/"
+              ]
+            },
             "scripts": []
           },
           "configurations": {
