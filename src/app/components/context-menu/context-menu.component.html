@@ -1,6 +1,43 @@
 <div class="context-menu container">
   <div class="context-menu__brand">
-    <img src="/assets/image/logo/tasker-logo_primary.svg" alt="">
+    <i class="icon icon-list logo"></i>
   </div>
-  <div class="context-menu__item"></div>
+  <div class="context-menu__item">
+      <div class="field is-horizontal">
+        <div class="field-body">
+          <div class="field has-addons">
+            <div class="control">
+              <input class="input" type="text" placeholder="Find a repository">
+            </div>
+            <div class="control">
+              <a class="button is-primary">
+                Buscar
+              </a>
+            </div>
+          </div>
+          <div class="field">
+            <div class="dropdown is-right is-hoverable">
+              <div class="dropdown-trigger">
+                <button class="button is-primary" aria-haspopup="true" aria-controls="dropdown-menu">
+                  <span>Novo</span>
+                  <span class="icon is-small is-white">
+                    <i class="fas fa-angle-down" aria-hidden="true"></i>
+                  </span>
+                </button>
+              </div>
+              <div class="dropdown-menu" id="dropdown-menu" role="menu">
+                <div class="dropdown-content">
+                  <a href="#" class="dropdown-item">
+                    Nova Tarefa
+                  </a>
+                  <a class="dropdown-item">
+                    Nova Lista
+                  </a>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+  </div>
 </div>
