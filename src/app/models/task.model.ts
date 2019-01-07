@@ -1,6 +1,7 @@
 export interface Task {
-    id: string;
+    id: number;
     title: string;
+    item_name: string;
     description?: string;
     created: string;
     due?: string;

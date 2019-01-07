@@ -3,22 +3,34 @@
     <input type="checkbox" name="" id="">
   </div>
   <div class="task__title">
-    <p>{{ title }}</p>
+    <p>{{ item.item_name }}</p>
+    <!-- <p>{{ item }}</p> -->
+    <input class="input" *ngIf="editing" type="text" [(ngModel)]="editValue">
   </div>
   <div class="task__options">
     <div class="field is-grouped">
-      <p class="control">
+      <!-- <p class="control">
         <button class="button is-rounded">
           <i class="icon icon-calendar"></i>
         </button>
         <button class="button is-rounded">
-            <i class="icon icon-note"></i>
-          </button>
-        <button class="button is-rounded">
-          <i class="icon icon-trash"></i>
-        </button>
-        <button class="button is-rounded">
           <i class="icon icon-settings"></i>
+        </button>
+      </p> -->
+      <p class="control" *ngIf="editing">
+        <button (click)="onCancel()" class="button is-rounded">
+          Cancelar
+        </button>
+        <button (click)="onUpdate()" class="button is-primary is-rounded">
+          Salvar
+        </button>
+      </p>
+      <p class="control" *ngIf="!editing">
+        <button (click)="onEdit()" class="button is-rounded">
+          <i class="icon icon-note"></i>
+        </button>
+        <button (click)="onDelete()" class="button is-rounded">
+          <i class="icon icon-trash"></i>
         </button>
       </p>
     </div>
