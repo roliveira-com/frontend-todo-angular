@@ -14,6 +14,7 @@ import { ContextMenuComponent } from './components/context-menu/context-menu.com
 import { PanelListComponent } from './components/panel-list/panel-list.component';
 import { TaskItemComponent } from './components/task-item/task-item.component';
 import { HomeComponent } from './views/home/home.component';
+import { NewTaskComponent } from './components/new-task/new-task.component';
 
 @NgModule({
   declarations: [
@@ -22,7 +23,8 @@ import { HomeComponent } from './views/home/home.component';
     ContextMenuComponent,
     PanelListComponent,
     TaskItemComponent,
-    HomeComponent
+    HomeComponent,
+    NewTaskComponent
   ],
   imports: [
     BrowserModule,

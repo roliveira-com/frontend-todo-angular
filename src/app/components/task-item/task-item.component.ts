@@ -1,4 +1,4 @@
-import { Component, OnInit, Input } from '@angular/core';
+import { Component, OnInit, Input, Output, EventEmitter } from '@angular/core';
 import { Task } from '../../models/task.model';
 import { TaskService } from '../../services/task.service';
 
@@ -10,6 +10,7 @@ import { TaskService } from '../../services/task.service';
 export class TaskItemComponent implements OnInit {
 
   @Input() item: Task;
+  @Output() deleted: EventEmitter<Task> = new EventEmitter();
   editing: boolean = false;
   editValue: string = '';
 
@@ -18,13 +19,14 @@ export class TaskItemComponent implements OnInit {
   ngOnInit() {
   }
 
-  onEdit(){
+  onEdit() {
     this.editing = true;
-    this.editValue = this.item.item_name;
+    this.editValue = this.item.title;
   }
 
-  onUpdate(){
-    this.item.item_name = this.editValue;
+  onUpdate() {
+    this.item.title = this.editValue;
+    console.log(this.item);
     this.api.updateTask(this.item.id, this.item)
       .subscribe(item => {
         console.log(item);
@@ -33,14 +35,17 @@ export class TaskItemComponent implements OnInit {
       });
   }
 
-  onCancel(){
+  onCancel() {
     this.editing = false;
     this.editValue = '';
   }
 
-  onDelete(){
+  onDelete() {
     this.api.deleteTask(this.item.id)
-      .subscribe(item => console.log(item))
+      .subscribe(item => {
+        this.deleted.emit(this.item);
+        console.log(item);
+      });
   }
 
 }

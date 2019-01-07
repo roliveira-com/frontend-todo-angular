@@ -1,0 +1,21 @@
+<main>
+  <section class="section">
+    <div class="container">
+      <form #f="ngForm" (ngSubmit)="onSubmit(f)">
+        <div class="field is-grouped">
+          <p class="control is-expanded">
+            <input class="input" type="text" name="title" id="title" ngModel>
+            <input type="hidden" name="list" id="list" ngModel="0">
+            <input type="hidden" name="user" id="user" ngModel="0">
+            <input type="hidden" name="progress" id="progress" ngModel="0">
+          </p>
+          <p class="control">
+            <button class="button is-primary" type="submit">
+              Salvar
+            </button>
+          </p>
+        </div>
+      </form>
+    </div>
+  </section>
+</main>

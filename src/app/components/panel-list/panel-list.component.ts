@@ -17,8 +17,17 @@ export class PanelListComponent implements OnInit {
   ngOnInit() {
     this.api.getTasks()
       .subscribe(response => {
-        this.items = response.result.items
-      })
+        this.items = response.result.items;
+      });
+  }
+
+  onDeleted(task: Task) {
+    const position = this.items.findIndex(
+      (elem: Task) => {
+        return elem.id === task.id;
+      }
+    );
+    this.items.splice(position, 1);
   }
 
 }
